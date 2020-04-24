@@ -7,9 +7,36 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import it.polito.tdp.meteo.model.Rilevamento;
 
 public class MeteoDAO {
+	
+	public List<String> getAllCitta(){
+		final String sql = "SELECT DISTINCT Localita FROM situazione";
+
+		List<String> localita = new ArrayList<String>();
+
+		try {
+			Connection conn = ConnectDB.getConnection();
+			PreparedStatement st = conn.prepareStatement(sql);
+
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+
+				localita.add(rs.getString("localita"));
+			}
+
+			conn.close();
+			return localita;
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
 	
 	public List<Rilevamento> getAllRilevamenti() {
 
@@ -114,6 +141,8 @@ public String getMediaLocalitaMese(int mese) {
 			throw new RuntimeException(e);
 		}
 	}
+
+// mi serve un metodo per prendere i primi 15 giorni del mese scelto
 
 
 }

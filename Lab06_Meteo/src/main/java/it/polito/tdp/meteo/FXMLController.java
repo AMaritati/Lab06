@@ -5,9 +5,11 @@
 package it.polito.tdp.meteo;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.meteo.model.Model;
+import it.polito.tdp.meteo.model.Rilevamento;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -37,7 +39,10 @@ public class FXMLController {
 
     @FXML
     void doCalcolaSequenza(ActionEvent event) {
-
+    	Integer mese = boxMese.getValue();
+    	List<Rilevamento> r = this.model.sequenzaCitta(mese);
+    	txtResult.setText(this.model.descriviSequenza(r));
+    	
     }
 
     @FXML

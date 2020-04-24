@@ -46,16 +46,16 @@ public class Rilevamento {
 	
 	
 
-	// @Override
-	// public String toString() {
-	// return localita + " " + data + " " + umidita;
-	// }
+	 @Override
+	 public String toString() {
+	 return "\t" + localita + "\t" + data + "\t" + umidita+ "\n";
+	 }
 
 	
-	@Override
-	public String toString() {
-		return String.valueOf(umidita);
-	}
+	 //@Override
+	 //public String toString() {
+	 //	return String.valueOf(umidita);
+	 //}
 
 	public String descriviMedia() {
 		return localita+" - " + media;
