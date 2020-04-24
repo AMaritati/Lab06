@@ -44,7 +44,7 @@ public class Model {
 			}
 		}
 	}
-	
+	 // questo metodo potevo usufruirne nel dao , cercando il mese che voglio limitando successivamente a 15 i giorni
 	
 	/**
 	 * metodo per il completamento del primo esercizio
